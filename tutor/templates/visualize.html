@@ -1,0 +1,138 @@
+<html>
+
+  <head>
+    <title>Python/visualization</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+      body, html {
+        height: 100%;
+        margin: 0;
+      }
+
+      #header {
+        height:20%;
+      }
+
+      #body{
+        height:78%;
+      }
+
+      #footer{
+        height:2%;
+      }
+
+      #divleft {
+        text-align:center;
+        float: left;
+        width: 50%;
+        height: 100%;
+      }
+
+      #divright{
+        text-align:center;
+        float: right;
+        width: 50%;
+        height: 100%;
+      }
+
+      .slidecontainer {
+        width: 80%;
+        margin-left:55px;
+      }
+
+      .slider {
+        width: 100%; 
+        height: 25px; 
+        outline: none; 
+      }
+
+      .hero-image {
+        background-image: url("https://image.freepik.com/free-photo/abstract-techno-background-with-connecting-lines_1048-5570.jpg");
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+      }
+
+      textarea {
+        background-color: white;
+        font-size: 1em;
+        font-weight: bold;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        border: 1px solid black;
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class="hero-image">
+      <div class="hero-text">
+
+        <div id="header">
+          <div class="container">
+            <div class="page-header">
+              <h1><font color="white">Python Tutor</font></h1>      
+            </div>      
+          </div>
+        </div>
+
+        <div id='body'>
+          <div id='divleft'>
+            <p></p>
+            <div class="form-group">
+              <label for="comment"><font color="white">Write your code:</font></label>
+              <form  method ="post"> {% csrf_token %}
+                <textarea name="code" rows="15" cols="65">
+                  {% if output1 %}{{output1}}{% endif %}
+                </textarea>
+                <p></p>
+                <div class="btn-toolbar">
+                  <button id = "myButton" type="submit" style="float: center">Compile</button>
+                </div>
+              </form>
+            </div>
+
+            <!--    <div class="slidecontainer">
+<input type="range" min="1" max="100" value="1" class="slider" id="myRange">
+</div>
+<p></p>
+<div class="btn-group">
+<button>Backward</button>
+<button>Forward</button>
+</div>--> 
+          </div> 
+
+          <div id='divright'>
+            <p></p>
+            <label for="comment"><font color="white">Output:</font></label>
+            <form method='post'> {% csrf_token %}
+              <textarea rows="5" cols="65"> 
+                {% if output1 %}{{output1}}{% endif %}
+              </textarea>
+            </form>
+     <!--       <label for="comment"><font color="white">Visualized Output:</font></label>
+            <form method='post'> {% csrf_token %}
+              <textarea rows="5" cols="65"> 
+                {% if output %}{{output}}{% endif %}
+              </textarea>
+            </form> -->
+          </div>
+        </div>
+
+        <div id='footer'></div>
+      </div>
+
+    </div>
+    </div>
+
+  </body>
+
+</html>
